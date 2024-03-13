@@ -1,0 +1,26 @@
+server:
+  port: 8093
+  error:
+    include-message: always
+
+spring:
+  cloud:
+    config:
+      enabled: false
+
+  datasource:
+    url: jdbc:h2:mem:customerDb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driveClassName: org.h2.Driver
+    platform: h2
+    user: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    base-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format: false

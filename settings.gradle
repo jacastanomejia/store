@@ -1,0 +1,4 @@
+rootProject.name = 'store'
+include 'product-service'
+include 'customer-service'
+include 'config-service'
