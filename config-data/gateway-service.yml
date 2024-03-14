@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+eureka:
+  client:
+    serverUrl:
+      defaultZone: http://localhost:8761/
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: customer-service
+        uri: lb://customer-service
+        predicates:
+        - Path=/customers/**
+      - id: product-service
+        uri: lb://product-service
+        predicates:
+        - Path=/products/**
+      - id: shopping-service
+        uri: lb://shopping-service
+        predicates:
+        - Path=/shopping/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always

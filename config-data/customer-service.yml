@@ -24,3 +24,15 @@ spring:
         show_sql: true
         use_sql_comments: false
         format: false
+eureka:
+  client:
+    serverUrl:
+      defaultZone: http://localhost:8761/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
